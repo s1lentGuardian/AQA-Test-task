@@ -14,8 +14,12 @@ export class SearchComponent {
   }
 
   async getSearchRes(searchQuery: string) {
-    await expect(
-      this.page.locator(`//p[contains(@class, 'MuiTypography') and text()='${searchQuery}']`),
-    ).toBeVisible();
+    const searchedTracks = await this.page
+      .locator(`//div[contains(@class, 'MuiGrid-grid-xs-4 ')]/p[contains(@class, 'css-3ffyn9')]`)
+      .allTextContents();
+
+    searchedTracks.forEach((track) => {
+      expect(track).toContain(searchQuery);
+    });
   }
 }

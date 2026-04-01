@@ -23,7 +23,7 @@ test.describe('Playlist page', () => {
     await playlistPage.verifyAddedTrackInYourPlaylist(trackName);
   });
 
-  test("Total tracks duration equals to the sum of the added tracks in the 'YOUR PLAYLIST' section", async ({
+  test("Total tracks duration equals to the sum duration of the added tracks in the 'YOUR PLAYLIST' section", async ({
     page,
   }) => {
     const playlistPage = new PlaylistPage(page);
